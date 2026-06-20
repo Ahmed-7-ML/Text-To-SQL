@@ -1,0 +1,50 @@
+# --- Environment Variables & Secrets (CRITICAL) ---
+.env
+.env.local
+.env.*
+*.env
+
+# --- Python Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+# Poetry environment custom paths (if not in-project)
+.poetry/
+
+# --- Python Cache & Compiled Files ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Operating System Files ---
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- IDEs & Code Editors ---
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+# PyCharm / IntelliJ
+.idea/
+
+# --- Local Databases (To keep your original repo clean) ---
+*.db
+*.sqlite3
+
+# --- Application Specific ---
+# Streamlit local configurations
+.streamlit/config.toml
