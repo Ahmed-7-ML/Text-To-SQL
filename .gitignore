@@ -49,5 +49,6 @@ $RECYCLE.BIN/
 # Streamlit local configurations
 .streamlit/config.toml
 
-.gitignore
+
 poetry.lock
+.gitignore
