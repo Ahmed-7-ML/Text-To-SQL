@@ -1,8 +1,12 @@
 from src.config import DB_PATH
 import sqlite3
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "Faculty.db")
 
 # Take this SQL Query to get records from DB
-def get_records(SQL_Query: str, db: str) -> list:
+def get_records(SQL_Query: str) -> list:
     """Executes a given SQL query against a local SQLite database and fetches results.
 
     Connects to the specified SQLite database file, creates a cursor, executes the
@@ -16,7 +20,7 @@ def get_records(SQL_Query: str, db: str) -> list:
         list: A list of tuples containing the raw rows fetched from the database.
         Returns an empty list if no records match.
     """
-    conn = sqlite3.connect(db)
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute(SQL_Query)
     data = cursor.fetchall()

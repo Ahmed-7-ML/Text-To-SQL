@@ -9,6 +9,7 @@ cursor = conn.cursor()
 # Clean up old tables (the order is important: we clean up the Secondary(Marks) first and then the Primary(Students) to prevent constraints problems)
 cursor.execute("DROP TABLE IF EXISTS Marks;")
 cursor.execute("DROP TABLE IF EXISTS Students;")
+cursor.execute("DROP TABLE IF EXISTS Users;")
 
 # Create Students Table
 students_table_schema = """
@@ -30,10 +31,18 @@ CREATE TABLE IF NOT EXISTS Marks(
 );
 """
 
+users_table_schema = """
+CREATE TABLE IF NOT EXISTS Users(
+    Username VARCHAR(50) PRIMARY KEY,
+    Password VARCHAR(50) NOT NULL,      -- Must be Hashed
+    Role     VARCHAR(25) NOT NULL
+)
+"""
+
 # Execution Order is also Important as Marks Table refer to Students Table
 cursor.execute(students_table_schema)
 cursor.execute(marks_table_schema)
-
+cursor.execute(users_table_schema)
 
 # Insert some student records
 students_insert_records = [
@@ -68,13 +77,30 @@ marks_insert_records = [
     "INSERT OR IGNORE INTO Marks (StudentId, Subject, Score) VALUES (5, 'Operating Systems', 90)",    
 ]
 
+users_insert_records =  [
+    "INSERT OR IGNORE INTO Users VALUES ('ahmed_admin', 'ahmed123', 'admin')",
+    "INSERT OR IGNORE INTO Users VALUES ('omar_207', 'omar100', 'user')",
+    "INSERT OR IGNORE INTO Users VALUES ('cr7_100', 'cris_07', 'user')"
+]
+
 for record in students_insert_records:
     cursor.execute(record)
 
 for record in marks_insert_records:
     cursor.execute(record)
 
+for record in users_insert_records:
+    cursor.execute(record)
+
 # Display all Records
+print("Inserted Users:")
+data = cursor.execute("""SELECT * FROM Users""")
+
+for row in data:
+    print(row)
+
+print("_"*50)
+
 print("Inserted Students:")
 data = cursor.execute("""SELECT * FROM Students""")
 

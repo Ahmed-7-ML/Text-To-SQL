@@ -1,7 +1,6 @@
 # --- Environment Variables & Secrets (CRITICAL) ---
 .env
 .env.local
-.env.*
 *.env
 
 # --- Python Virtual Environments ---
@@ -49,3 +48,7 @@ $RECYCLE.BIN/
 # --- Application Specific ---
 # Streamlit local configurations
 .streamlit/config.toml
+
+login.png
+admin.png
+user.png
