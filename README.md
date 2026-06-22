@@ -1,5 +1,5 @@
 
-# 🗄️ Enterprise NexusSQL AI
+# 🗄️ Enterprise QueryGuard AI
 
 > An enterprise-grade GenAI platform that bridges non-technical business users and relational databases — translating plain English or Arabic questions into optimized, executable SQL queries with real-time results.
 
