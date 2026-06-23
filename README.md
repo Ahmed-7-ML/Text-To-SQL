@@ -139,7 +139,7 @@ GEMINI_API_KEY=AIzaSyYourActualAPIKeyHere
 **4. Initialize the database:**
 
 ```bash
-poetry run python db_setup.py
+poetry run python db_init.py
 ```
 
 **5. Launch the app:**
